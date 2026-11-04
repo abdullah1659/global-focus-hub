@@ -1,0 +1,52 @@
+GLOBAL FOCUS HUB — ADMIN APPROVAL GUIDE (MVP)
+===============================================
+
+Keep admin actions inside the Supabase dashboard. Never put a service_role key
+or database password in the website.
+
+1) FIND AN AGENT APPLICATION
+- Open Supabase > Authentication > Users.
+- Find the applicant by email and copy their User ID (UUID).
+- In Table Editor > profiles, confirm the matching profile and agency_name.
+
+2) APPROVE AN AGENT
+- Open SQL Editor > New query.
+- Replace USER_UUID below with the applicant's actual UUID.
+- Run:
+
+update public.profiles
+set role = 'agent',
+    approval_status = 'approved'
+where id = 'USER_UUID';
+
+To reject instead, use approval_status = 'rejected' and keep role as customer.
+
+3) REVIEW A PROPERTY
+- Open Table Editor > properties.
+- Review title, description, address/area, price and image_urls.
+- Check ownership and listing details independently before approval.
+
+4) PUBLISH A PROPERTY
+- Copy its property UUID from the properties table.
+- In SQL Editor, replace PROPERTY_UUID and run:
+
+update public.properties
+set status = 'published',
+    updated_at = now()
+where id = 'PROPERTY_UUID'
+  and status = 'pending';
+
+To reject:
+
+update public.properties
+set status = 'rejected',
+    updated_at = now()
+where id = 'PROPERTY_UUID'
+  and status = 'pending';
+
+5) IMPORTANT
+- Only approve agents after your own checks.
+- Only publish listings after checking the agent and property details.
+- Do not share database passwords or secret/service_role keys.
+- This is a manual MVP workflow; an authenticated server-side admin panel
+  should be built before scaling the platform.
