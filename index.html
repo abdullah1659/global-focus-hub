@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">  
 <head>  
@@ -6,15 +5,16 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">  
 <title>Global Focus Hub | Connecting People. Properties. Opportunities.</title>  
 <meta name="description" content="Discover properties and connect with verified real estate agents on Global Focus Hub.">  
+<link rel="icon" type="image/png" href="logo.png">  
 <style>  
 :root{--navy:#101d36;--navy2:#182b4d;--gold:#d5ad55;--ink:#182033;--muted:#697386;--bg:#f5f7fb;--line:#e4e8f0;--white:#fff;--green:#16794b}  
 *{box-sizing:border-box}  
 body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--ink)}  
 button,input,select,textarea{font:inherit}  
 button{cursor:pointer}  
-.top{background:var(--navy);color:#fff;padding:14px 5%;display:flex;align-items:center;justify-content:space-between;gap:15px;position:sticky;top:0;z-index:5;box-shadow:0 3px 15px #101d3622}  
-.brand{font-weight:900;letter-spacing:.2px;font-size:18px}  
-.brand span{color:var(--gold)}  
+.top{background:var(--navy);color:#fff;padding:10px 5%;display:flex;align-items:center;justify-content:space-between;gap:15px;position:sticky;top:0;z-index:5;box-shadow:0 3px 15px #101d3622}  
+.brand{display:flex;align-items:center;background:#fff;border-radius:10px;padding:4px 10px;text-decoration:none}  
+.brand img{height:46px;width:auto;display:block}  
 nav{display:flex;gap:8px;align-items:center;flex-wrap:wrap}  
 nav button,.btn{border:0;border-radius:9px;padding:10px 14px;font-weight:700}  
 .navbtn{background:transparent;color:white}  
@@ -49,6 +49,8 @@ nav button,.btn{border:0;border-radius:9px;padding:10px 14px;font-weight:700}
 .feature b{color:var(--navy)}  
 footer{background:var(--navy);color:#dce3ef;padding:28px 5%;margin-top:55px}  
 footer b{color:var(--gold)}  
+.footer-logo{display:inline-block;background:#fff;border-radius:12px;padding:6px 14px;margin-bottom:12px}  
+.footer-logo img{height:70px;width:auto;display:block}  
 .modal{display:none;position:fixed;inset:0;background:#071225b8;z-index:10;padding:18px;overflow:auto}  
 .modal.open{display:flex;align-items:flex-start;justify-content:center}  
 .dialog{background:white;border-radius:16px;padding:22px;width:min(100%,520px);margin:auto;box-shadow:0 20px 70px #0004}  
@@ -66,6 +68,12 @@ footer b{color:var(--gold)}
 .tabs{display:flex;gap:8px;margin-top:14px}  
 .tabs button{flex:1}  
 .dashlist{display:grid;gap:10px;margin-top:15px}  
+.subscription-panel{background:#fff;border:1px solid var(--line);border-radius:13px;padding:16px;margin:18px 0}  
+.subscription-panel h3{margin-top:0;color:var(--navy)}  
+.bank-details{display:grid;gap:7px;background:#f5f7fb;border:1px solid var(--line);border-radius:10px;padding:13px;margin:12px 0}  
+.bank-details strong{color:var(--navy)}  
+.subscription-panel .form{margin-top:12px}  
+.subscription-history{margin-top:12px}  
 .dashitem{padding:12px;border:1px solid var(--line);border-radius:10px;display:flex;justify-content:space-between;gap:10px;align-items:center}  
 .small{font-size:12px;color:var(--muted)}  
 @media(max-width:800px){  
@@ -74,8 +82,8 @@ footer b{color:var(--gold)}
 .features{grid-template-columns:1fr}  
 }  
 @media(max-width:560px){  
-.top{padding:12px 4%;align-items:flex-start}  
-.brand{font-size:16px}  
+.top{padding:8px 4%;align-items:center}  
+.brand img{height:36px}  
 nav{justify-content:flex-end}  
 nav button{padding:8px;font-size:12px}  
 .hero{padding:42px 5%}  
@@ -87,24 +95,7 @@ nav button{padding:8px;font-size:12px}
 </style>  
 </head>  
 <body>  <header class="top">  
-  <style>
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.logo {
-  width: 50px;
-  height: 50px;
-  object-fit: contain;
-}
-</style>
-
-<div class="brand">
-  <img src="logo.png" alt="Global Focus Hub Logo" class="logo">
-  GLOBAL FOCUS <span>HUB</span>
-</div>  
+  <a class="brand" href="#" aria-label="Global Focus Hub home"><img src="logo.png" alt="Global Focus Hub – Connecting People. Properties. Opportunities."></a>  
   <nav>  
     <button class="navbtn" onclick="scrollToListings()">Properties</button>  
     <button class="navbtn" onclick="openModal('agentModal')">Become an agent</button>  
@@ -157,6 +148,7 @@ nav button{padding:8px;font-size:12px}
   </div>  
  </section>  
 </main>  <footer>  
+ <div class="footer-logo"><img src="logo.png" alt="Global Focus Hub"></div><br>  
  <b>GLOBAL FOCUS HUB</b><br>  
  Connecting People. Properties. Opportunities.  
  <p class="small">Property details are provided by listing agents. Verify ownership, documents and terms independently before making payment.</p>  
@@ -202,8 +194,7 @@ nav button{padding:8px;font-size:12px}
    <label>Agency / business name<input id="agencyName" required></label>  
    <label>Phone number<input id="agentPhone" required></label>  
    <label>Additional information<textarea id="agentInfo" placeholder="Tell us about your real estate experience or business"></textarea></label>  
-   <button class="btn gold">Submit agent application</button>  
-   <div class="note">Applications are reviewed by Global Focus Hub. Submission does not automatically grant listing privileges.</div>  
+   <button class="btn gold">Submit agent application</button>     <div class="note">Applications are reviewed by Global Focus Hub. Submission does not automatically grant listing privileges.</div>  
    <div id="agentMessage" class="note"></div>  
   </form>  
  </div>  
@@ -220,8 +211,33 @@ nav button{padding:8px;font-size:12px}
     <button class="btn gold">Submit / update application</button>  
    </form>  
   </div>  
+  <section id="subscriptionArea" class="subscription-panel hidden" aria-labelledby="subscriptionHeading">  
+   <h3 id="subscriptionHeading">Agent subscription</h3>  
+   <div id="subscriptionStatus" class="status" aria-live="polite">Loading subscription details…</div>  
+   <p id="subscriptionDates" class="small"></p>  
+   <p><strong>₦1,000 per month</strong> after your first 30 days free.</p>  
+   <p class="muted">To renew, make a bank transfer using the details below. Your subscription is renewed only after Global Focus Hub verifies the transfer.</p>  
+   <div class="bank-details">  
+    <div>Bank: <strong>OPay</strong></div>  
+    <div>Account name: <strong>Abdullah Oluwajuwon Yusuff</strong></div>  
+    <div>Account number: <strong>7041576628</strong></div>  
+    <div>Amount: <strong>₦1,000</strong></div>  
+   </div>  
+   <form id="subscriptionPaymentForm" class="form">  
+    <label>Bank transfer reference / narration  
+     <input id="paymentReference" required minlength="3" maxlength="120" autocomplete="off" placeholder="Enter your transfer reference">  
+    </label>  
+    <button class="btn gold" id="subscriptionPaymentSubmit" type="submit">Submit transfer reference</button>  
+    <div id="subscriptionPaymentMessage" class="note" aria-live="polite"></div>  
+   </form>  
+   <div class="subscription-history">  
+    <strong>Recent payment submissions</strong>  
+    <div id="subscriptionPayments" class="dashlist"><div class="small">No payment submissions loaded.</div></div>  
+   </div>  
+  </section>  
   <div id="listingArea" class="hidden">  
    <h3>Submit a property</h3>  
+   <div id="listingAccessMessage" class="status hidden" aria-live="polite"></div>  
    <form id="propertyForm" class="form">  
     <label>Property title<input id="pTitle" required placeholder="e.g. Spacious 2-bedroom flat"></label>  
     <label>Description<textarea id="pDescription" required></textarea></label>  
@@ -245,11 +261,16 @@ nav button{padding:8px;font-size:12px}
 </div>  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>  <script>  
 const SUPABASE_URL = "https://ywsslvjlqxccwrdghkyu.supabase.co";  
 const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_z-EpdkffaXb19vKTJ8HyWg_TIBYiNmT";  
-const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY);   
+const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY);  
+  
 const GLOBAL_FOCUS_WHATSAPP = "2349070903008";  
+  
 let currentMode = "signup";  
 let currentUser = null;  
 let currentProfile = null;  
+let currentSubscription = null;  
+let subscriptionAccessActive = false;  
+  
 function msg(id,text,kind=""){  
  const el=document.getElementById(id);  
  el.textContent=text;  
@@ -261,9 +282,134 @@ function scrollToListings(){document.getElementById("listings").scrollIntoView({
 function money(n){  
  return new Intl.NumberFormat("en-NG",{style:"currency",currency:"NGN",maximumFractionDigits:0}).format(Number(n||0));  
 }  
-function showAuth(mode){  
- currentMode=mode;   document.getElementById("nameField").classList.toggle("hidden",mode==="login");   document.getElementById("phoneField").classList.toggle("hidden",mode==="login");   document.getElementById("authName").required=mode==="signup";   document.getElementById("authSubmit").textContent=mode==="signup"?"Create account":"Log in";   document.getElementById("authMessage").textContent="";  
+  
+function getSubscriptionAccess(subscription=currentSubscription){  
+ const now=Date.now();  
+ if(subscription?.status==="trial" && subscription.trial_ends_at && new Date(subscription.trial_ends_at).getTime()>now){  
+  return {active:true,type:"trial",until:subscription.trial_ends_at};  
+ }  
+ if(subscription?.status==="active" && subscription.paid_until && new Date(subscription.paid_until).getTime()>now){  
+  return {active:true,type:"paid",until:subscription.paid_until};  
+ }  
+ return {active:false,type:"expired",until:subscription?.paid_until||subscription?.trial_ends_at||null};  
 }  
+  
+function formatSubscriptionDate(value){  
+ if(!value)return "Not available";  
+ return new Date(value).toLocaleDateString("en-NG",{day:"numeric",month:"long",year:"numeric"});  
+}  
+  
+async function loadSubscription(){  
+ const statusBox=document.getElementById("subscriptionStatus");  
+ const datesBox=document.getElementById("subscriptionDates");  
+ const propertyForm=document.getElementById("propertyForm");  
+ const accessMessage=document.getElementById("listingAccessMessage");  
+ currentSubscription=null;  
+ subscriptionAccessActive=false;  
+ statusBox.textContent="Loading subscription details…";  
+ datesBox.textContent="";  
+ propertyForm.classList.add("hidden");  
+ accessMessage.classList.remove("hidden");  
+ accessMessage.textContent="Checking your subscription before enabling property submissions…";  
+  
+ const {data,error}=await supabaseClient.from("agent_subscriptions")  
+  .select("trial_started_at,trial_ends_at,paid_until,status")  
+  .eq("user_id",currentUser.id)  
+  .maybeSingle();  
+  
+ if(error){  
+  statusBox.textContent="Unable to load subscription: "+error.message;  
+  accessMessage.textContent="Property submissions are unavailable until your subscription can be verified.";  
+  return;  
+ }  
+  
+ currentSubscription=data||null;  
+ if(!currentSubscription){  
+  statusBox.textContent="No subscription record was found for this agent account.";  
+  datesBox.textContent="Please contact Global Focus Hub support so the account subscription can be checked.";  
+  accessMessage.textContent="Property submissions are locked because no subscription record was found.";  
+ }else{  
+  const access=getSubscriptionAccess(currentSubscription);  
+  subscriptionAccessActive=access.active;  
+  if(access.active && access.type==="trial"){  
+   statusBox.textContent="Your 30-day free trial is active until "+formatSubscriptionDate(access.until)+".";  
+   statusBox.className="status ok";  
+  }else if(access.active && access.type==="paid"){  
+   statusBox.textContent="Your agent subscription is active until "+formatSubscriptionDate(access.until)+".";  
+   statusBox.className="status ok";  
+  }else{  
+   statusBox.textContent="Your free trial or paid subscription has expired. Transfer ₦1,000 to renew.";  
+   statusBox.className="status error";  
+  }  
+  datesBox.textContent="Trial started: "+formatSubscriptionDate(currentSubscription.trial_started_at)+" · Trial ends: "+formatSubscriptionDate(currentSubscription.trial_ends_at)+(currentSubscription.paid_until?" · Paid until: "+formatSubscriptionDate(currentSubscription.paid_until):"");  
+  if(access.active){  
+   propertyForm.classList.remove("hidden");  
+   accessMessage.classList.add("hidden");  
+  }else{  
+   accessMessage.textContent="Your property submission access is paused until your ₦1,000 monthly payment is verified by the administrator.";  
+  }  
+ }  
+  
+ const historyBox=document.getElementById("subscriptionPayments");  
+ const {data:payments,error:paymentsError}=await supabaseClient.from("subscription_payments")  
+  .select("id,amount,status,payment_reference,created_at")  
+  .eq("user_id",currentUser.id)  
+  .order("created_at",{ascending:false})  
+  .limit(5);  
+ if(paymentsError){  
+  historyBox.textContent="Payment history could not be loaded: "+paymentsError.message;  
+ }else if(!payments?.length){  
+  historyBox.innerHTML='<div class="small">No payment submissions yet.</div>';  
+ }else{  
+  historyBox.innerHTML=payments.map(payment=>`<div class="dashitem"><div><b>${money(payment.amount)}</b><div class="small">${escapeHtml(payment.payment_reference||"No reference")} · ${formatSubscriptionDate(payment.created_at)}</div></div><span class="tag">${escapeHtml(payment.status)}</span></div>`).join("");  
+ }  
+}  
+  
+// Submit transfer references for manual administrator verification.  
+document.getElementById("subscriptionPaymentForm").addEventListener("submit",async e=>{  
+ e.preventDefault();  
+ if(!currentUser){msg("subscriptionPaymentMessage","Please sign in again before submitting a payment reference.","error");return;}  
+ if(!currentSubscription){msg("subscriptionPaymentMessage","Your subscription record is missing. Please contact Global Focus Hub support.","error");return;}  
+ const button=document.getElementById("subscriptionPaymentSubmit");  
+ const reference=document.getElementById("paymentReference").value.trim();  
+ if(reference.length<3){msg("subscriptionPaymentMessage","Enter a valid transfer reference.","error");return;}  
+ button.disabled=true;  
+ button.textContent="Submitting…";  
+ try{  
+  const pending=await supabaseClient.from("subscription_payments")  
+   .select("id")  
+   .eq("user_id",currentUser.id)  
+   .eq("status","pending")  
+   .limit(1);  
+  if(pending.error)throw pending.error;  
+  if(pending.data?.length)throw new Error("You already have a payment awaiting verification. Please wait for the administrator to review it.");  
+  const {error}=await supabaseClient.from("subscription_payments").insert({  
+   user_id:currentUser.id,  
+   amount:1000,  
+   currency:"NGN",  
+   payment_reference:reference,  
+   status:"pending"  
+  });  
+  if(error)throw error;  
+  document.getElementById("subscriptionPaymentForm").reset();  
+  msg("subscriptionPaymentMessage","Transfer reference submitted. Your subscription will renew after the administrator verifies the OPay transfer. A pending payment does not activate access.","ok");  
+  await loadSubscription();  
+ }catch(err){  
+  msg("subscriptionPaymentMessage",err.message||"Unable to submit the transfer reference.","error");  
+ }finally{  
+  button.disabled=false;  
+  button.textContent="Submit transfer reference";  
+ }  
+});  
+function showAuth(mode){  
+ currentMode=mode;  
+ document.getElementById("nameField").classList.toggle("hidden",mode==="login");  
+ document.getElementById("phoneField").classList.toggle("hidden",mode==="login");  
+ document.getElementById("authName").required=mode==="signup";  
+ document.getElementById("authSubmit").textContent=mode==="signup"?"Create account":"Log in";  
+ document.getElementById("authMessage").textContent="";  
+}  
+  
 document.getElementById("authForm").addEventListener("submit",async e=>{  
  e.preventDefault();  
  const email=document.getElementById("authEmail").value.trim();  
@@ -272,10 +418,13 @@ document.getElementById("authForm").addEventListener("submit",async e=>{
  if(currentMode==="signup"){  
   result=await supabaseClient.auth.signUp({  
    email,password,  
-   options:{data:{    full_name:document.getElementById("authName").value.trim(),   phone:document.getElementById("authPhone").value.trim()  
+   options:{data:{  
+    full_name:document.getElementById("authName").value.trim(),  
+    phone:document.getElementById("authPhone").value.trim()  
    }}  
   });  
-  if(result.error){msg("authMessage",result.error.message,"error");return;}   document.getElementById("authMessage").textContent="Account created. Check your email for a confirmation link before logging in.";  
+  if(result.error){msg("authMessage",result.error.message,"error");return;}  
+  document.getElementById("authMessage").textContent="Account created. Check your email for a confirmation link before logging in.";  
  }else{  
   result=await supabaseClient.auth.signInWithPassword({email,password});  
   if(result.error){msg("authMessage",result.error.message,"error");return;}  
@@ -284,16 +433,19 @@ document.getElementById("authForm").addEventListener("submit",async e=>{
   openDashboard();  
  }  
 });  
+  
 document.getElementById("agentForm").addEventListener("submit",async e=>{  
  e.preventDefault();  
  if(!currentUser){  
   closeModal("agentModal");  
   showAuth("signup");  
-  openModal("authModal");   document.getElementById("authMessage").textContent="Create your account first. Then return to the agent application.";  
+  openModal("authModal");  
+  document.getElementById("authMessage").textContent="Create your account first. Then return to the agent application.";  
   return;  
  }  
  await submitAgentApplication("agencyName","agentPhone","agentMessage");  
 });  
+  
 async function submitAgentApplication(agencyId,phoneId,messageId){  
  const agency=document.getElementById(agencyId).value.trim();  
  const phone=document.getElementById(phoneId).value.trim();  
@@ -302,10 +454,12 @@ async function submitAgentApplication(agencyId,phoneId,messageId){
  msg(messageId,"Application details saved. Your account is awaiting review. Global Focus Hub's administrator must approve your agent status before you can submit listings.","ok");  
  await refreshSession();  
 }  
+  
 document.getElementById("dashAgentForm").addEventListener("submit",async e=>{  
  e.preventDefault();  
  await submitAgentApplication("dashAgency","dashPhone","dashMessage");  
 });  
+  
 document.getElementById("propertyForm").addEventListener("submit",async e=>{  
  e.preventDefault();  
  if(!currentUser)return;  
@@ -313,6 +467,8 @@ document.getElementById("propertyForm").addEventListener("submit",async e=>{
  button.disabled=true;  
  button.textContent="Submitting…";  
  try{  
+  const access=getSubscriptionAccess(currentSubscription);  
+  if(!access.active)throw new Error("Your subscription is not active. Renew for ₦1,000 and wait for payment verification before submitting properties.");  
   const files=[...document.getElementById("pImages").files],urls=[];  
   for(const file of files){  
    if(!["image/jpeg","image/png","image/webp"].includes(file.type))throw new Error("Use JPG, PNG or WEBP images only.");  
@@ -325,15 +481,26 @@ document.getElementById("propertyForm").addEventListener("submit",async e=>{
    urls.push(pub.data.publicUrl);  
   }  
   const row={  
-   agent_id:currentUser.id,   title:document.getElementById("pTitle").value.trim(),    description:document.getElementById("pDescription").value.trim(),   listing_type:document.getElementById("pListing").value,   property_type:document.getElementById("pType").value,    price:Number(document.getElementById("pPrice").value),    price_period:document.getElementById("pPeriod").value||null,   area:document.getElementById("pArea").value.trim(),   address:document.getElementById("pAddress").value.trim()||null,  
+   agent_id:currentUser.id,  
+   title:document.getElementById("pTitle").value.trim(),  
+   description:document.getElementById("pDescription").value.trim(),  
+   listing_type:document.getElementById("pListing").value,  
+   property_type:document.getElementById("pType").value,  
+   price:Number(document.getElementById("pPrice").value),  
+   price_period:document.getElementById("pPeriod").value||null,  
+   area:document.getElementById("pArea").value.trim(),  
+   address:document.getElementById("pAddress").value.trim()||null,  
    city:"Lagos",  
-   state:"Lagos",   bedrooms:Number(document.getElementById("pBeds").value)||null,   bathrooms:Number(document.getElementById("pBaths").value)||null,  
+   state:"Lagos",  
+   bedrooms:Number(document.getElementById("pBeds").value)||null,  
+   bathrooms:Number(document.getElementById("pBaths").value)||null,  
    image_urls:urls,  
    status:"pending"  
   };  
   const {error}=await supabaseClient.from("properties").insert(row);  
   if(error)throw error;  
-  msg("dashMessage","Property submitted for review. It will appear publicly only after an administrator approves it.","ok");   document.getElementById("propertyForm").reset();  
+  msg("dashMessage","Property submitted for review. It will appear publicly only after an administrator approves it.","ok");  
+  document.getElementById("propertyForm").reset();  
   await loadMyProperties();  
  }catch(err){  
   msg("dashMessage",err.message||"Unable to submit property.","error");  
@@ -341,35 +508,45 @@ document.getElementById("propertyForm").addEventListener("submit",async e=>{
   button.disabled=false;  
   button.textContent="Submit property for review";  
  }  
-});   
+});  
+  
 /* LOAD PUBLISHED PROPERTIES */  
 async function loadProperties(){  
  const grid=document.getElementById("propertyGrid");  
  grid.innerHTML='<div class="empty">Loading properties…</div>';  
+  
  let q=supabaseClient.from("properties")  
   .select("id,title,description,listing_type,property_type,price,price_period,area,city,state,bedrooms,bathrooms,image_urls")  
   .eq("status","published")  
-  .order("created_at",{ascending:false});    
+  .order("created_at",{ascending:false});  
+  
  const loc=document.getElementById("searchLocation").value.trim();  
  if(loc)q=q.or("area.ilike.%"+loc+"%,city.ilike.%"+loc+"%,address.ilike.%"+loc+"%");  
+  
  const type=document.getElementById("searchType").value;  
- if(type)q=q.eq("property_type",type);   
+ if(type)q=q.eq("property_type",type);  
+  
  const listing=document.getElementById("searchListing").value;  
- if(listing)q=q.eq("listing_type",listing);   
- const {data,error}=await q;   
+ if(listing)q=q.eq("listing_type",listing);  
+  
+ const {data,error}=await q;  
+  
  if(error){  
   grid.innerHTML='<div class="empty">Could not load listings: '+escapeHtml(error.message)+'</div>';  
   return;  
  }  
+  
  if(!data||!data.length){  
   grid.innerHTML='<div class="empty"><b>No published properties yet.</b><br>New listings will appear here after an approved agent submits them and an administrator publishes them.</div>';  
   return;  
  }  
+  
  grid.innerHTML=data.map(p=>{  
   const image=(p.image_urls||[])[0];  
   const location=[p.area,p.city,p.state].filter(Boolean).join(", ");  
   const whatsappMessage="Hello Global Focus Hub, I am interested in this property: "+p.title+". Listing: "+p.listing_type+". Price: "+money(p.price)+". Location: "+location+". Please provide more details.";  
   const whatsappUrl="https://wa.me/"+GLOBAL_FOCUS_WHATSAPP+"?text="+encodeURIComponent(whatsappMessage);  
+  
   return `<article class="card">  
    <div class="photo">${image?`<img src="${escapeAttr(image)}" alt="Property photo">`:"Property photo coming soon"}</div>  
    <div class="cardbody">  
@@ -388,40 +565,61 @@ async function loadProperties(){
    </div>  
   </article>`;  
  }).join("");  
-}   
+}  
+  
 function escapeHtml(s){  
  return String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));  
 }  
-function escapeAttr(s){return escapeHtml(s);}   
+function escapeAttr(s){return escapeHtml(s);}  
+  
 /* OPEN ENQUIRY FORM FOR THE SELECTED PROPERTY */  
 document.getElementById("propertyGrid").addEventListener("click",function(e){  
  const button=e.target.closest(".inquiry-button");  
- if(!button)return;   openInquiry(button.dataset.propertyId,button.dataset.propertyTitle);  
+ if(!button)return;  
+ openInquiry(button.dataset.propertyId,button.dataset.propertyTitle);  
 });  
+  
 function openInquiry(propertyId,propertyTitle){  
  const form=document.getElementById("inquiryForm");  
- form.reset();   document.getElementById("inquiryPropertyId").value=propertyId;   document.getElementById("inquiryPropertyTitle").textContent=propertyTitle;   document.getElementById("inquiryStatus").textContent="";   document.getElementById("inquiryStatus").className="note";  
+ form.reset();  
+ document.getElementById("inquiryPropertyId").value=propertyId;  
+ document.getElementById("inquiryPropertyTitle").textContent=propertyTitle;  
+ document.getElementById("inquiryStatus").textContent="";  
+ document.getElementById("inquiryStatus").className="note";  
  openModal("inquiryModal");  
 }  
+  
 /* SAVE ENQUIRY TO SUPABASE */  
 document.getElementById("inquiryForm").addEventListener("submit",async function(e){  
  e.preventDefault();  
+  
  const button=document.getElementById("inquirySubmit");  
  const status=document.getElementById("inquiryStatus");  
+  
  button.disabled=true;  
  button.textContent="Sending…";  
  status.textContent="";  
  status.className="note";  
+  
  try{  
-  const inquiry={   property_id:document.getElementById("inquiryPropertyId").value,   client_name:document.getElementById("inquiryName").value.trim(),   client_phone:document.getElementById("inquiryPhone").value.trim(),   client_email:document.getElementById("inquiryEmail").value.trim()||null,   message:document.getElementById("inquiryMessage").value.trim()||null  
+  const inquiry={  
+   property_id:document.getElementById("inquiryPropertyId").value,  
+   client_name:document.getElementById("inquiryName").value.trim(),  
+   client_phone:document.getElementById("inquiryPhone").value.trim(),  
+   client_email:document.getElementById("inquiryEmail").value.trim()||null,  
+   message:document.getElementById("inquiryMessage").value.trim()||null  
   };  
+  
   if(!inquiry.property_id)throw new Error("Please select a property again.");  
+  
   const {error}=await supabaseClient.from("property_inquiries").insert(inquiry);  
   if(error)throw error;  
   
   status.textContent="Thank you. Your enquiry has been sent successfully. Our team will contact you.";  
   status.className="status ok";  
-  this.reset();   document.getElementById("inquiryPropertyTitle").textContent="";   document.getElementById("inquiryPropertyId").value="";  
+  this.reset();  
+  document.getElementById("inquiryPropertyTitle").textContent="";  
+  document.getElementById("inquiryPropertyId").value="";  
  }catch(err){  
   status.textContent="Your enquiry could not be sent: "+(err.message||"Please try again.");  
   status.className="status error";  
@@ -430,58 +628,92 @@ document.getElementById("inquiryForm").addEventListener("submit",async function(
   button.textContent="Submit enquiry";  
  }  
 });  
+  
 /* SESSION AND DASHBOARD */  
 async function refreshSession(){  
  const {data}=await supabaseClient.auth.getSession();  
  currentUser=data.session?.user||null;  
  currentProfile=null;  
+  
  if(currentUser){  
   const r=await supabaseClient.from("profiles").select("*").eq("id",currentUser.id).maybeSingle();  
   currentProfile=r.data||null;  
- }   document.getElementById("authNav").hidden=!!currentUser;   document.getElementById("logoutNav").hidden=!currentUser;  document.getElementById("dashboardNav").hidden=!currentUser;  
+ }  
+  
+ document.getElementById("authNav").hidden=!!currentUser;  
+ document.getElementById("logoutNav").hidden=!currentUser;  
+ document.getElementById("dashboardNav").hidden=!currentUser;  
 }  
+  
 async function logout(){  
  await supabaseClient.auth.signOut();  
  await refreshSession();  
  loadProperties();  
 }  
+  
 async function openDashboard(){  
  if(!currentUser){  
   openModal("authModal");  
   return;  
  }  
+  
  await refreshSession();  
  openModal("dashModal");  
+  
  const role=currentProfile?.role||"customer";  
- const approval=currentProfile?.approval_status||"pending";   document.getElementById("dashIntro").textContent="Signed in as "+(currentUser.email||"user")+" · Account type: "+role+" · Agent approval: "+approval;   document.getElementById("dashAgency").value=currentProfile?.agency_name||"";   document.getElementById("dashPhone").value=currentProfile?.phone||"";  
- const approvedAgent=role==="agent"&&approval==="approved";   document.getElementById("agentApplyArea").classList.toggle("hidden",approvedAgent);   document.getElementById("listingArea").classList.toggle("hidden",!approvedAgent);  
+ const approval=currentProfile?.approval_status||"pending";  
+  
+ document.getElementById("dashIntro").textContent="Signed in as "+(currentUser.email||"user")+" · Account type: "+role+" · Agent approval: "+approval;  
+ document.getElementById("dashAgency").value=currentProfile?.agency_name||"";  
+ document.getElementById("dashPhone").value=currentProfile?.phone||"";  
+  
+ const approvedAgent=role==="agent"&&approval==="approved";  
+ document.getElementById("agentApplyArea").classList.toggle("hidden",approvedAgent);  
+ document.getElementById("subscriptionArea").classList.toggle("hidden",!approvedAgent);  
+ document.getElementById("listingArea").classList.toggle("hidden",!approvedAgent);  
+ if(approvedAgent){  
+  await loadSubscription();  
+ }else{  
+  currentSubscription=null;  
+  subscriptionAccessActive=false;  
+ }  
+  
  await loadMyProperties();  
 }  
+  
 async function loadMyProperties(){  
- const box=document.getElementById("myProperties");    
+ const box=document.getElementById("myProperties");  
+  
  if(!currentUser){  
   box.textContent="Sign in to view your submissions.";  
   return;  
  }  
+  
  const {data,error}=await supabaseClient.from("properties")  
   .select("id,title,status,created_at")  
   .eq("agent_id",currentUser.id)  
   .order("created_at",{ascending:false});  
+  
  if(error){  
   box.textContent=error.message;  
   return;  
  }  
+  
  if(!data?.length){  
   box.innerHTML='<div class="small">You have not submitted any properties yet.</div>';  
   return;  
  }  
+  
  box.innerHTML=data.map(p=>`<div class="dashitem"><div><b>${escapeHtml(p.title)}</b><div class="small">${new Date(p.created_at).toLocaleDateString()}</div></div><span class="tag">${escapeHtml(p.status)}</span></div>`).join("");  
 }  
+  
 supabaseClient.auth.onAuthStateChange(async()=>{  
  await refreshSession();  
 });  
+  
 showAuth("signup");  
 refreshSession();  
 loadProperties();  
 </script>  </body>  
 </html>  
+
